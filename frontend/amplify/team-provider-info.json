@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amazonpricingmonitor-dev-122451-authRole",
+      "UnauthRoleArn": "arn:aws:iam::751917795811:role/amplify-amazonpricingmonitor-dev-122451-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::751917795811:role/amplify-amazonpricingmonitor-dev-122451-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amazonpricingmonitor-dev-122451-deployment",
+      "UnauthRoleName": "amplify-amazonpricingmonitor-dev-122451-unauthRole",
+      "StackName": "amplify-amazonpricingmonitor-dev-122451",
+      "StackId": "arn:aws:cloudformation:us-east-1:751917795811:stack/amplify-amazonpricingmonitor-dev-122451/02c0a460-fcab-11ed-8735-0e72816b1829",
+      "AmplifyAppId": "dwollptph36oh"
+    },
+    "categories": {
+      "auth": {
+        "amazonpricingmonitorfb504188": {}
+      }
+    }
+  }
+}
