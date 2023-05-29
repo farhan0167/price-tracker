@@ -22,6 +22,8 @@ def lambda_handler(event, context):
         #get body of request to extract url:
         url = message['url']
         username = message['username']
+        custom_name = message['custom_name']
+        target = message["target"]
         
         
         response = client.get(url,
@@ -59,7 +61,11 @@ def lambda_handler(event, context):
             "price": price,
             "priceCh": [price],
             "product": title.text.strip(),
-            "url": url
+            "url": url,
+            "custom_name": custom_name,
+            "net_change": 0,
+            "change_since_yesterday": 0,
+            "target": Decimal(target)
         }
         
         try:

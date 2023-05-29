@@ -12,7 +12,7 @@ def lambda_handler(event, context):
     username = formData['username']
     
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('table_name')
+    table = dynamodb.Table('table')
     
     response = table.scan(
         FilterExpression=Attr('username').eq(username)
@@ -21,6 +21,10 @@ def lambda_handler(event, context):
     items = response['Items']
     for item in items:
         item['price'] = float(item['price']) #to be able parse in response
+        item['net_change'] = float(item['net_change'])
+        item['change_since_yesterday'] = float(item['change_since_yesterday'])
+        item['target'] = float(item['target'])
+        
         #process decimal type to floats
         if 'priceCh' in item.keys():
             float_list = [float(d) for d in item['priceCh']]
