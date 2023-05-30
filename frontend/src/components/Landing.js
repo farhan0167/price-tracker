@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import {Container, Row} from 'react-bootstrap'
+import ItemCard from './Item';
+import { AddItem } from './AddItem';
 
 const Landing = (props) => {
     const [data, setData] = useState(null)
+    const username = props.userData.username
 
 
     useEffect(() => {
         const messageToSend = {
-            "username": props.data.username
+            "username": props.userData.username
         }
         const requestOptions = {
             method: 'POST',
@@ -20,21 +24,23 @@ const Landing = (props) => {
             setData(data_res)
             
         })
-    }, [props.data.username])
+    }, [props.userData.username])
     
   return (
     
     <React.Fragment>
-        {data? (
-            data.map(item =>(
-                <div>
-                    <p>{item.custom_name}</p>
-                    <p>{item.price}</p>
-                </div>
-            ))
-        ): (
-            <p>Loading...</p>
-        )}
+        <Container>
+            {data? (
+                data.map(item =>(
+                    <Row style={{ marginBottom: '10px' }}>
+                        <ItemCard trackingInfo={item}/>
+                    </Row>
+                ))
+            ): (
+                <p>Loading...</p>
+            )}
+        </Container>
+        <AddItem username={username}/>
     </React.Fragment>
     
   )
