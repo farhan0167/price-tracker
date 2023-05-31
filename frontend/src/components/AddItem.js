@@ -41,9 +41,22 @@ export function AddItem(props) {
         url: url,
         username: username,
         custom_name: prodName,
-        target: targetPerct
+        target: parseFloat(targetPerct)
     }
-    console.log(dataToSend)
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(dataToSend)
+    };
+    const endpoint = "https://ifqldng21c.execute-api.us-east-1.amazonaws.com/dev/store-items"
+    fetch(endpoint, requestOptions)
+    .then(res => res.json())
+    .then(dataRes => {
+        //console.log(dataRes)
+        props.onResponse(dataRes)
+        setShow(false)
+    })
+    //console.log(dataToSend)
   }
 
   return (
