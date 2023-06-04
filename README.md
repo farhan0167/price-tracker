@@ -7,8 +7,11 @@ on Amazon, and if you want to buy a product at a set target price, running a sin
 You want to be notified about it with a system running 24/7 in the background. This is my attempt at creating a serverless application
 to keep track of product prices against a target price.
 
+## [# Demo](https://d32obbkkibcaxl.cloudfront.net/)
+
 ## System Overview
 ![system overview](assets/sysImage.jpeg)
+
 
 The general idea behind the design was to decouple the entire system. The client side interacts with an API Gateway that routes traffic to either store or get items (backed by two seperate Lambda functions for each task) from a DynamoDB Table.
 
