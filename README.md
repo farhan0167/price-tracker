@@ -20,4 +20,6 @@ This implementation introduced a new challenge. With the decoupling in place, wh
 
 **Note** This is a current repository and the code is not final.
 
+# [Issues](https://github.com/farhan0167/price-tracker/issues)
+
 
