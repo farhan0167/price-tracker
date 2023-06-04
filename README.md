@@ -7,7 +7,8 @@ on Amazon, and if you want to buy a product at a set target price, running a sin
 You want to be notified about it with a system running 24/7 in the background. This is my attempt at creating a serverless application
 to keep track of product prices against a target price.
 
-## [# Demo](https://d32obbkkibcaxl.cloudfront.net/)
+# [# Demo](https://d32obbkkibcaxl.cloudfront.net/)
+# Currently Working on the following bugs: [#Issues](https://github.com/farhan0167/price-tracker/issues)
 
 ## System Overview
 ![system overview](assets/sysImage.jpeg)
@@ -23,6 +24,6 @@ This implementation introduced a new challenge. With the decoupling in place, wh
 
 **Note** This is a current repository and the code is not final.
 
-# [#Issues](https://github.com/farhan0167/price-tracker/issues)
+
 
 
