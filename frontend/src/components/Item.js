@@ -1,4 +1,5 @@
 import Card from 'react-bootstrap/Card';
+import PriceFluctuation from './Historical';
 
 function ItemCard(props) {
   const data = props.trackingInfo
@@ -15,10 +16,18 @@ function ItemCard(props) {
             Original Price: $ {data.price}
           </Card.Text>
           <Card.Text style={{'marginLeft': '10px'}}>
-            Target Price: $ {(data.price * (1-data.target)).toFixed(2)}
+          {data.hasOwnProperty('priceCh') && (
+            <>
+              Price Today: $ {data.priceCh[data.priceCh.length - 1]}
+            </>
+          )}
+          </Card.Text>
+          <Card.Text style={{'marginLeft': '10px'}}>
+            Target Price: $ {(data.price * (1+(data.target/100))).toFixed(2)}
           </Card.Text>
         </div>
-        <Card.Link href="#">Track Price Change</Card.Link>
+        
+        <PriceFluctuation productData={data}/>
       </Card.Body>
     </Card>
   );

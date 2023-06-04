@@ -8,6 +8,7 @@ const Landing = (props) => {
     const [data, setData] = useState(null)
     const username = props.userData.username
     const [responseData, setResponseData] = useState(null)
+    const [canAdd, setCanAdd] = useState(false) //initial state of whether client can add items
 
 
     const CACHE_DURATION = 5 * 60 * 1000; // 15 minutes in milliseconds
@@ -48,6 +49,11 @@ const Landing = (props) => {
         .then(res => res.json())
         .then(data_res =>{
             setData(data_res)
+            //add a validation mechanism
+            if (data_res.length < 1) {
+                //only allow 1 item
+                setCanAdd(true)
+            }
             //Store Item in Cache->reduce Dynamo Reads
             localStorage.setItem('data', JSON.stringify(data_res));
             localStorage.setItem('timestamp', new Date().getTime());
@@ -57,7 +63,7 @@ const Landing = (props) => {
   return (
     
     <React.Fragment>
-        <Container>
+        <Container style={{'marginTop':'50px'}}>
             {data? (
                 data.map(item =>(
                     <Row style={{ marginBottom: '10px' }}>
@@ -69,7 +75,11 @@ const Landing = (props) => {
             )}
         </Container>
         {/*Pass onResponse down to children popup, get data and process in parent*/}
-        <AddItem username={username} onResponse={handleResponse}/>
+        {canAdd==true ?
+            <AddItem username={username} onResponse={handleResponse}/> 
+            : "You reached the limit of items you can track"
+        }
+        
     </React.Fragment>
     
   )

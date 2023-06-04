@@ -5,18 +5,19 @@ import awsconfig from './aws-exports';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import Landing from './components/Landing';
+import Navigation from './components/NavBar';
+
 
 Amplify.configure(awsconfig)
 
 function App() {
   
   return (
-    <div className="App">
-      
-      <Authenticator>
+    <div className="App">     
+      <Authenticator>   
             {({ signOut, user }) => (
                 <div>
-                    <button onClick={signOut}>Sign out</button>
+                    <Navigation userSignOut={signOut}/>
                     <Landing userData={user}/>
                 </div>
             )}
