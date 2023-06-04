@@ -9,8 +9,10 @@ to keep track of product prices against a target price.
 
 # [# Demo](https://d32obbkkibcaxl.cloudfront.net/)
 # Currently Working on the following bugs: [#Issues](https://github.com/farhan0167/price-tracker/issues)
+1. Items get a 501 error sometimes
+2. Wrong tags are scrapped with similar class names
 
-## System Overview
+# System Overview
 ![system overview](assets/sysImage.jpeg)
 
 
