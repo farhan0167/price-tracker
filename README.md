@@ -12,6 +12,7 @@ to keep track of product prices against a target price.
 1. Items get a 501 error sometimes
 2. Wrong tags are scrapped with similar class names
 3. EventBridge was set to one time, therefore items aren't updated daily
+4. To add a publicly viewable page for users who don't want to create an account
 
 # System Overview
 ![system overview](assets/sysImage.jpeg)
